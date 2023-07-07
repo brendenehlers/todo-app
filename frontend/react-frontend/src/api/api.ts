@@ -14,6 +14,12 @@ const todos: Todo[] = [
         isCompleted: false,
         isEditing: false,
     },
+    {
+        id: "3",
+        text: "the third todo",
+        isCompleted: false,
+        isEditing: true,
+    },
 ]
 
 export function getTodos(): Promise<Todo[]> {

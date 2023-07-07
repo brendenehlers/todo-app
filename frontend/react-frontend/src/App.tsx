@@ -25,6 +25,29 @@ function App() {
     })
   }
 
+  function handleUpdateTodoText(todoId: string, text: string) {
+    console.log("updating todo text to " + text)
+    const todoIndex = todos.findIndex(it => it.id === todoId)
+    if (todoIndex === -1) return
+
+    setTodos(prevTodos => {
+      const newTodos = [...prevTodos]
+      newTodos.splice(todoIndex, 1, {...newTodos[todoIndex], text})
+      return newTodos
+    })
+  }
+
+  function handleToggleTodoEditable(todoId: string) {
+    const todoIndex = todos.findIndex(it => it.id === todoId)
+    if (todoIndex === -1) return
+
+    setTodos(prevTodos => {
+      const newTodos = [...prevTodos]
+      newTodos.splice(todoIndex, 1, {...newTodos[todoIndex], isEditing: !newTodos[todoIndex].isEditing})
+      return newTodos
+    })
+  }
+
   useEffect(() => {
     console.log(todos)
   }, [todos])
@@ -39,7 +62,9 @@ function App() {
               return <TodoCard 
                 key={todo.id} 
                 todo={todo} 
-                onToggleTodo={handleTodoToggle}
+                onToggleTodoCompleted={handleTodoToggle}
+                onUpdateTodoText={handleUpdateTodoText}
+                onToggleTodoEditable={handleToggleTodoEditable}
               />
             })
           }
