@@ -5,6 +5,7 @@ import "./styles.css"
 
 type Props = {
     todo: Todo
+    editingTodo: boolean
     onToggleTodoCompleted: (todoId: string) => void
     onUpdateTodoText: (todoId: string, todoText: string) => void
     onToggleTodoEditable: (todoId: string) => void
@@ -20,12 +21,19 @@ function TodoCard({todo, ...props}: Props) {
             {!todo.isEditing ?
             <section>
                 <p>{todo.text}</p>
-                <button onClick={() => props.onToggleTodoEditable(todo.id)}>edit</button>
-                <input 
-                    type="checkbox"
-                    checked={todo.isCompleted}
-                    onChange={() => props.onToggleTodoCompleted(todo.id)} 
-                />
+                <div
+                    style={{
+                        display: 'flex',
+                        marginLeft: 'auto'
+                    }}
+                >
+                    {!props.editingTodo && <button onClick={() => props.onToggleTodoEditable(todo.id)}>edit</button>}
+                    <input 
+                        type="checkbox"
+                        checked={todo.isCompleted}
+                        onChange={() => props.onToggleTodoCompleted(todo.id)} 
+                    />
+                </div>
             </section>
             :
             <section>

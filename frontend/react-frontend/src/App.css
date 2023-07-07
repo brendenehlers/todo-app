@@ -31,3 +31,13 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
+.addTodo {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.addTodo button {
+    margin: 0
+}

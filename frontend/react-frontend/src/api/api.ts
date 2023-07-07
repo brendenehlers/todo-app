@@ -18,7 +18,7 @@ const todos: Todo[] = [
         id: "3",
         text: "the third todo",
         isCompleted: false,
-        isEditing: true,
+        isEditing: false,
     },
 ]
 

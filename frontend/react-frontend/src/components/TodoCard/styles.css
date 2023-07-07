@@ -24,6 +24,7 @@ input[type="checkbox"] {
   /* background-color: var(--form-background); */
   /* Not removed via appearance */
   margin: 0;
+  margin-top: 3px;
 
   font: inherit;
   color: currentColor;
