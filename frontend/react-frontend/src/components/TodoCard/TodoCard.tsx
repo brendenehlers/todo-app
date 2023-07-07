@@ -24,7 +24,9 @@ function TodoCard({todo, ...props}: Props) {
                 <div
                     style={{
                         display: 'flex',
-                        marginLeft: 'auto'
+                        marginLeft: 'auto',
+                        justifyContent: 'center',
+                        alignItems: 'center',
                     }}
                 >
                     {!props.editingTodo && <button onClick={() => props.onToggleTodoEditable(todo.id)}>edit</button>}
